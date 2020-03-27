@@ -51,7 +51,7 @@ npx @appsweet-co/npm-carbon \
   packageA [packageB...]
 ```
 
-### Modify Package Prefix
+  ### Modify Package Prefix
 Modify the package prefix using the `--from-prefix` and `--to-prefix` flags.
 
 ```sh
