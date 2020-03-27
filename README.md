@@ -5,6 +5,8 @@
 
 # Welcome to npm-carbon! 👋
 
+_Based on [goodeggs/npm-copy](https://github.com/goodeggs/npm-copy) and [dperuo/npm-carbon](https://github.com/dperuo/npm-carbon)._
+
 Use this command line tool to make a "carbon copy" of any npm package and all its published versions.
 
 
@@ -17,15 +19,11 @@ npx @appsweet-co/npm-carbon <OPTIONS>
 
 
 ## Usage
-
 Run `--help` for a full list of commands.
 
 ```sh
 npx @appsweet-co/npm-carbon --help
 ```
-
-:dart: **NOTE: You can mix-and-match command options as needed.**
-
 
 ### Authenticate Using Auth Tokens
 
