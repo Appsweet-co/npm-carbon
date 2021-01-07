@@ -29,7 +29,16 @@ export const cli = fibrous((argv: CustomArgv) => {
       const srcVersions = npm.sync.get(srcUrl, srcConfig).versions;
 
       logger.info("Getting versions from destination...", "📡");
-      const destVersions = npm.sync.get(destUrl, destConfig).versions;
+      let destVersions;
+      try {
+        destVersions = npm.sync.get(destUrl, destConfig).versions;
+      } catch (e) {
+        destVersions = {};
+        
+        if (e.code !== "E404") {
+          throw e;
+        }
+      }
 
       const srcKeys = Object.keys(srcVersions);
       const destKeys = Object.keys(destVersions);
