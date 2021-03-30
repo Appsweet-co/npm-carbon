@@ -1,0 +1,8 @@
+{
+  "commitLimit": 0,
+  "output": "CHANGELOG.md",
+  "releaseSummary": true,
+  "remote": "origin",
+  "template": "keepachangelog",
+  "unreleased": false
+}
