@@ -2,7 +2,7 @@
   "commitLimit": 0,
   "output": "CHANGELOG.md",
   "releaseSummary": true,
-  "remote": "origin",
+  "remote": "github",
   "template": "keepachangelog",
   "unreleased": false
 }
