@@ -1,4 +1,12 @@
-### Issues Fixed :wrench:
+### Jira Tickets :gem:
+- If
+- Any
+
+### GitHub Issues :wrench:
+- If
+- Any
+
+### GitHub Pull Requests :shipit:
 - If
 - Any
 
@@ -6,7 +14,11 @@
 - If
 - Any
 
+### Build Logs :mag:
+- If
+- Any
+
 ### Details :memo:
-Short description if no issue.
+Short description if no Jira Tickets, GitHub Issues or Pull Requests.
 
 <!-- Please add labels to this PR! -->
