@@ -1,10 +1,10 @@
 {
   "name": "@appsweet-co/npm-carbon",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Copy npm packages and all their versions from one registry to another",
   "main": "bin/index.js",
   "bin": {
-    "npm-carbon": "./bin/index.js"
+    "npm-carbon": "bin/index.js"
   },
   "files": [
     "bin/**/*.js",
