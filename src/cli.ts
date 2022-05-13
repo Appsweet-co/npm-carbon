@@ -21,8 +21,8 @@ export const cli = fibrous((argv: CustomArgv) => {
     const srcUrl = `${src}/${srcName}`;
     const destUrl = `${dest}/${destName}`;
 
-    const srcConfig = {auth: srcAuth, timeout: 3000};
-    const destConfig = {auth: destAuth, timeout: 3000};
+    const srcConfig = { auth: srcAuth, timeout: 3000 };
+    const destConfig = { auth: destAuth, timeout: 3000 };
 
     try {
       logger.info("Getting versions from source...", "📡");
@@ -32,9 +32,9 @@ export const cli = fibrous((argv: CustomArgv) => {
       let destVersions;
       try {
         destVersions = npm.sync.get(destUrl, destConfig).versions;
-      } catch (e) {
+      } catch (e: any) {
         destVersions = {};
-        
+
         if (e.code !== "E404") {
           throw e;
         }
@@ -48,7 +48,7 @@ export const cli = fibrous((argv: CustomArgv) => {
 
       if (!diff.length) {
         logger.ok('No items differ. Nothing to migrate!', "✅");
-        process.exit(0)
+        process.exit(0);
       }
 
       logger.info(diff.length === 1 ? "1 item differs!" : `${diff.length} items differ!`, "🔀");
@@ -59,18 +59,18 @@ export const cli = fibrous((argv: CustomArgv) => {
 
         const tarball = npm.sync.fetch(dist.tarball, { auth: srcAuth });
 
-        const destMetadata = { ...srcMetadata }
+        const destMetadata = { ...srcMetadata };
 
         // Delete private properties and the 'dist' object.
         delete destMetadata._;
         delete destMetadata.dist;
 
-        npm.sync.publish(dest, { auth: destAuth, metadata: destMetadata, access: 'public', body: tarball })
+        npm.sync.publish(dest, { auth: destAuth, metadata: destMetadata, access: 'public', body: tarball });
 
-        logger.ok(`${key} migrated!`, "✅")
-      })
-    } catch (err) {
+        logger.ok(`${key} migrated!`, "✅");
+      });
+    } catch (err: any) {
       logger.error(err, "💥");
     }
-  })
-})
+  });
+});
