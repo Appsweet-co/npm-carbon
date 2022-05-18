@@ -1,5 +1,9 @@
 import { Props } from "./const";
 import { getAuthOpts } from "./service";
+import { dev, error, info } from "@dperuo/logger";
+import RegClient from 'npm-registry-client';
+
+const npm = new RegClient();
 
 export const cli = (argv: Props) => {
   const bundles = argv._;
@@ -16,7 +20,17 @@ export const cli = (argv: Props) => {
     const srcConfig = { auth: auth.src, timeout: 3000 };
     const destConfig = { auth: auth.dest, timeout: 3000 };
 
-    console.log({ srcUrl, destUrl, srcConfig, destConfig });
+    dev(srcName, destName, srcUrl, destUrl, srcConfig, destConfig);
+
+    info('Getting versions from source...');
+
+    const callback = (err, data) => err ? error(err) : dev(data);
+
+    info('Getting versions from source...');
+    npm.get(srcUrl, srcConfig, callback);
+
+    info('Getting versions from destination...');
+    npm.get(destUrl, destConfig, callback);
   });
 };
 
