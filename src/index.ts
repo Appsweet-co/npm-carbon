@@ -2,10 +2,10 @@
 
 import yargs from "yargs";
 import { cli } from "./cli";
-import { usage } from "./index.const";
-import { logger } from "./logger";
+import { Props } from "./const";
+import { usage } from "./usage.const";
 
-const argv = yargs
+const props = yargs
   .usage(usage)
 
   .option("src", { alias: "s", describe: "The source URL", type: "string", nargs: 1, demandOption: true })
@@ -29,11 +29,13 @@ const argv = yargs
   .epilog('©2020 Appsweet.co. This project is MIT licensed.')
   .argv;
 
-cli(argv, (err) => {
-  if (err) {
-    logger.error(err.stack || err, "💥");
-    process.exit(1);
-  }
+// cli(argv, (err) => {
+//   if (err) {
+//     logger.error(err.stack || err, "💥");
+//     process.exit(1);
+//   }
 
-  process.exit(0);
-});
+//   process.exit(0);
+// });
+
+cli(props as Props);
