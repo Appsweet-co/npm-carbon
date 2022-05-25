@@ -8,8 +8,8 @@ import { usage } from "./usage.const";
 const props = yargs
   .usage(usage)
 
-  .option("src", { alias: "s", describe: "The source URL", type: "string", nargs: 1, demandOption: true })
-  .option("dest", { alias: "d", describe: "The destination URL", type: "string", nargs: 1, demandOption: true })
+  .option("src", { alias: "s", describe: "The source registryURL", type: "string", nargs: 1, demandOption: true, })
+  .option("dest", { alias: "d", describe: "The destination registry URL", type: "string", nargs: 1, demandOption: true, })
 
   .option("srcToken", { alias: "t", describe: "Auth token for source", type: "string", nargs: 1 })
   .option("destToken", { alias: "n", describe: "Auth token for destination", type: "string", nargs: 1 })
