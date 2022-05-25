@@ -28,15 +28,11 @@ const props = yargs
 
   .epilog('©2022 Appsweet.co. This project is MIT licensed.')
   .wrap(yargs.terminalWidth())
+
+  .example([
+    ['npx @appsweet-co/npm-carbon -s ${SRC_URL} -d ${DEST_URL} <OPTIONS>', 'Mix and match OPTIONS as needed.']
+  ])
+
   .argv;
-
-// cli(argv, (err) => {
-//   if (err) {
-//     logger.error(err.stack || err, "💥");
-//     process.exit(1);
-//   }
-
-//   process.exit(0);
-// });
 
 cli(props as Props);
