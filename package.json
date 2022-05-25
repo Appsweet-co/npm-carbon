@@ -13,11 +13,6 @@
   "scripts": {
     "build": "tsc",
     "build:dev": "tsc --pretty",
-    "changelog": "npx auto-changelog",
-    "deploy": "npm run publish:npm && npm run publish:github",
-    "publish:github": "npm publish --registry='https://npm.pkg.github.com/'",
-    "publish:npm": "npm publish --registry='https://registry.npmjs.org/'",
-    "readme": "npx @appnest/readme generate",
     "start": "npm run watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "tsc --pretty --watch"
