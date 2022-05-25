@@ -2,14 +2,14 @@
 
 import yargs from "yargs";
 import { cli } from "./cli";
-import { usage } from "./index.const";
-import { logger } from "./logger";
+import { Props } from "./const";
+import { usage } from "./usage.const";
 
-const argv = yargs
+const props = yargs
   .usage(usage)
 
-  .option("src", { alias: "s", describe: "The source URL", type: "string", nargs: 1, demandOption: true })
-  .option("dest", { alias: "d", describe: "The destination URL", type: "string", nargs: 1, demandOption: true })
+  .option("src", { alias: "s", describe: "The source registryURL", type: "string", nargs: 1, demandOption: true, })
+  .option("dest", { alias: "d", describe: "The destination registry URL", type: "string", nargs: 1, demandOption: true, })
 
   .option("srcToken", { alias: "t", describe: "Auth token for source", type: "string", nargs: 1 })
   .option("destToken", { alias: "n", describe: "Auth token for destination", type: "string", nargs: 1 })
@@ -26,14 +26,13 @@ const argv = yargs
   .option("srcPrefix", { alias: "e", describe: "Package prefix used for source", type: "string", nargs: 1 })
   .option("destPrefix", { alias: "x", describe: "Package prefix used for destination", type: "string", nargs: 1 })
 
-  .epilog('©2020 Appsweet.co. This project is MIT licensed.')
+  .epilog('©2022 Appsweet.co. This project is MIT licensed.')
+  .wrap(yargs.terminalWidth())
+
+  .example([
+    ['npx @appsweet-co/npm-carbon -s ${SRC_URL} -d ${DEST_URL} <OPTIONS>', 'Mix and match OPTIONS as needed.']
+  ])
+
   .argv;
 
-cli(argv, (err) => {
-  if (err) {
-    logger.error(err.stack || err, "💥");
-    process.exit(1);
-  }
-
-  process.exit(0);
-});
+cli(props as Props);
