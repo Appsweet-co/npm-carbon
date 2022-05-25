@@ -1,8 +1,0 @@
-{
-  "commitLimit": 0,
-  "output": "CHANGELOG.md",
-  "releaseSummary": true,
-  "remote": "github",
-  "template": "keepachangelog",
-  "unreleased": false
-}
