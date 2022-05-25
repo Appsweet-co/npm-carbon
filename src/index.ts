@@ -26,7 +26,7 @@ const props = yargs
   .option("srcPrefix", { alias: "e", describe: "Package prefix used for source", type: "string", nargs: 1 })
   .option("destPrefix", { alias: "x", describe: "Package prefix used for destination", type: "string", nargs: 1 })
 
-  .epilog('©2020 Appsweet.co. This project is MIT licensed.')
+  .epilog('©2022 Appsweet.co. This project is MIT licensed.')
   .wrap(yargs.terminalWidth())
   .argv;
 
