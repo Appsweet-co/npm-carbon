@@ -1,24 +1,13 @@
-### Jira Tickets :gem:
-- If
-- Any
+### Tickets :gem:
 
-### GitHub Issues :wrench:
-- If
-- Any
-
-### GitHub Pull Requests :shipit:
-- If
-- Any
-
-### Breaking Changes :boom:
-- If
-- Any
-
-### Build Logs :mag:
-- If
-- Any
+- If any 
 
 ### Details :memo:
-Short description if no Jira Tickets, GitHub Issues or Pull Requests.
 
-<!-- Please add labels to this PR! -->
+Breaking changes, related pull requests, build logs and other details go here.
+
+### Screeshots / Demos :camera:
+
+Not required, but strongly recommended
+
+<!-- REMEMBER: Please label this PR -->
