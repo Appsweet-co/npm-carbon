@@ -29,7 +29,7 @@ export async function getSrc(srcUrl, srcConfig): Promise<Record<SemVer, any>> {
 
     npm.get(srcUrl, srcConfig, (err, data) => {
       if (err) reject(err);
-      resolve(data.versions);
+      resolve(data?.versions ?? {});
     });
   });
 }
@@ -40,7 +40,7 @@ export async function getDest(destUrl, destConfig): Promise<Record<SemVer, any>>
 
     npm.get(destUrl, destConfig, (err, data) => {
       if (err) reject(err);
-      resolve(data.versions);
+      resolve(data?.versions ?? {});
     });
   });
 }
