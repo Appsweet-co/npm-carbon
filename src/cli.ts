@@ -25,7 +25,7 @@ export const cli = (argv: Props) => {
     const validatedRange = validRange(range);
 
     if (!validatedRange) {
-      error(`The range you endered seems to be invalid. You entered ${range}.`);
+      error(`The range you entered seems to be invalid. You entered ${range}.`);
       error('Please enter a valid npm version range: https://github.com/npm/node-semver#ranges');
       process.exit(1);
     }
