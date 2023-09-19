@@ -18,14 +18,23 @@ _Based on [goodeggs/npm-copy](https://github.com/goodeggs/npm-copy) and [dperuo/
 Use this command line tool to make a "carbon copy" of any npm package and all its published versions.
 
 ## Install
-No installation needed. Use `@appsweet-co/npm-carbon` directly from npm using the `npx` command.
+No installation needed. Use `@appsweet-co/npm-carbon` directly from the command line.
+
+### Node
 
 ```zsh
-npx @appsweet-co/npm-carbon <OPTIONS>
+npx @appsweet-co/npm-carbon -s $SRC_URL -d $DEST_URL <OPTIONS>
+```
+
+### Bun
+
+```zsh
+bunx @appsweet-co/npm-carbon -s $SRC_URL -d $DEST_URL <OPTIONS>
 ```
 
 ## Usage
-Run `--help` for a full list of commands.
+
+Run `--help` for a full list of options.
 
 ```zsh
 npx @appsweet-co/npm-carbon --help
@@ -57,7 +66,20 @@ npx @appsweet-co/npm-carbon \
   packageA [packageB...]
 ```
 
+### Specify a Version Range
+
+By default, `@appsweet-co/npm-carbon` copies all avaliable versions of the package. Use `--range` to specify a subset of versions.
+
+The `--range` flag accepts any valid [npm version range](https://github.com/npm/node-semver#ranges)/
+
+```zsh
+npx @appsweet-co/npm-carbon \
+  --range "~3.0.0 || 5.1.x" \
+  packageA [packageB...]
+```
+
 ### Modify Package Prefix
+
 Modify the package prefix using the `--srcprefix` and `--destPrefix` flags.
 
 ```zsh
@@ -72,11 +94,11 @@ npx @appsweet-co/npm-carbon \
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#author)
 
 ## Contributing
+
 Contributions, issues and feature requests are welcome! Feel free to check [issues page](https://github.com/appsweet-co/npm-carbon/issues).
 
-### Working With the @appsweet-co/npm-carbon Repo
+### Install
 
-#### Install
 Clone this repo to your local machine and install dependencies.
 
 ```zsh
@@ -85,7 +107,8 @@ cd npm-carbon/
 npm install
 ```
 
-#### Usage
+### Usage
+
 Use the `start` command to compile [TypeScript](https://www.typescriptlang.org/) and watch for changes.
 
 ```zsh
@@ -98,7 +121,8 @@ Run the local JavaScript file directly to check your changes.
 node ./bin/index.js <OPTIONS>
 ```
 
-#### Run Tests
+### Run Tests
+
 Run the full test suite using the `test` command.
 
 ```zsh
@@ -106,8 +130,5 @@ npm run test
 ```
 
 ### Submit Your Pull Request
+
 Always submit your Pull Request against `main`.
-
-
-## ➤ 📝 License
-Copyright ©2022 [Appsweet.co](https://appsweet.co/). This project is [MIT](./LICENSE) licensed.
