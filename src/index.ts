@@ -8,7 +8,7 @@ import { usage } from "./usage.const";
 const props = yargs
   .usage(usage)
 
-  .option("src", { alias: "s", describe: "The source registryURL", type: "string", nargs: 1, demandOption: true, })
+  .option("src", { alias: "s", describe: "The source registry URL", type: "string", nargs: 1, demandOption: true, })
   .option("dest", { alias: "d", describe: "The destination registry URL", type: "string", nargs: 1, demandOption: true, })
 
   .option("srcToken", { alias: "t", describe: "Auth token for source", type: "string", nargs: 1 })
@@ -23,14 +23,16 @@ const props = yargs
   .option("srcEmail", { alias: "e", describe: "Email for source", type: "string", nargs: 1 })
   .option("destEmail", { alias: "l", describe: "Email for destination", type: "string", nargs: 1 })
 
-  .option("srcPrefix", { alias: "e", describe: "Package prefix used for source", type: "string", nargs: 1 })
+  .option("srcPrefix", { alias: "f", describe: "Package prefix used for source", type: "string", nargs: 1 })
   .option("destPrefix", { alias: "x", describe: "Package prefix used for destination", type: "string", nargs: 1 })
 
-  .epilog('©2022 Appsweet.co. This project is MIT licensed.')
+  .option("range", { alias: "g", describe: "Any valid npm semver range", type: "string", nargs: 1 })
+
+  .epilog('©2023 Appsweet.co. This project is MIT licensed.')
   .wrap(yargs.terminalWidth())
 
   .example([
-    ['npx @appsweet-co/npm-carbon -s ${SRC_URL} -d ${DEST_URL} <OPTIONS>', 'Mix and match OPTIONS as needed.']
+    ['npx @appsweet-co/npm-carbon -s $SRC_URL -d $DEST_URL <OPTIONS>', 'Mix and match OPTIONS as needed.']
   ])
 
   .argv;
