@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import yargs from "yargs";
-import { cli } from "./cli";
+import { cli } from './cli';
 import { Props } from "./const";
 import { usage } from "./usage.const";
 
@@ -26,7 +26,7 @@ const props = yargs
   .option("srcPrefix", { alias: "f", describe: "Package prefix used for source", type: "string", nargs: 1 })
   .option("destPrefix", { alias: "x", describe: "Package prefix used for destination", type: "string", nargs: 1 })
 
-  .option("range", { alias: "g", describe: "Any valid npm semver range", type: "string", nargs: 1 })
+  .option("range", { alias: "g", describe: "Any valid npm version range (https://github.com/npm/node-semver#ranges)", type: "string", nargs: 1, default: 'x' })
 
   .epilog('©2023 Appsweet.co. This project is MIT licensed.')
   .wrap(yargs.terminalWidth())

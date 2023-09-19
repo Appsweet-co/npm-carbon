@@ -1,11 +1,12 @@
 import { done, error, info, ok } from '@dperuo/logger';
+import { satisfies, validRange } from 'semver';
 import { SemVer } from '../types/primitives';
 import { Props } from "./const";
 import { fetchTarball, getAuthOpts, getDest, getSrc, publish } from "./service";
 
 export const cli = (argv: Props) => {
   const bundles = argv._;
-  const { src, srcPrefix, dest, destPrefix } = argv;
+  const { src, srcPrefix, dest, destPrefix, range } = argv;
   const auth = getAuthOpts(argv);
 
   bundles.forEach(async (bundle) => {
@@ -21,7 +22,15 @@ export const cli = (argv: Props) => {
     const srcVersions = await getSrc(srcUrl, srcConfig);
     const destVersions = await getDest(destUrl, destConfig);
 
-    const srcKeys = Object.keys(srcVersions);
+    const validatedRange = validRange(range);
+
+    if (!validatedRange) {
+      error(`The range you endered seems to be invalid. You entered ${range}.`);
+      error('Please enter a valid npm version range: https://github.com/npm/node-semver#ranges');
+      process.exit(1);
+    }
+
+    const srcKeys = Object.keys(srcVersions).filter(key => satisfies(key, validatedRange));
     const destKeys = Object.keys(destVersions);
 
     // Hat Tip: https://medium.com/@alvaro.saburido/set-theory-for-arrays-in-es6-eb2f20a61848
