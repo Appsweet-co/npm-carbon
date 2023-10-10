@@ -7,6 +7,7 @@ export type Props = Arguments<{
   destPrefix?: string;
   destToken?: string;
   destUser?: string;
+  range: string;
   src: string;
   srcEmail?: string;
   srcPassword?: string;
