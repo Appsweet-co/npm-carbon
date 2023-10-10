@@ -1,8 +1,9 @@
 {
   "name": "@appsweet-co/npm-carbon",
-  "version": "1.1.0",
+  "version": "2.0.0-rc.0",
   "description": "Copy npm packages and all their versions from one registry to another",
   "main": "bin/index.js",
+  "type": "module",
   "bin": {
     "npm-carbon": "bin/index.js"
   },
@@ -13,6 +14,9 @@
   "scripts": {
     "build": "tsc",
     "build:dev": "tsc --pretty",
+    "clean": "rm -rf ./bin",
+    "prebuild": "npm run clean",
+    "prebuild:dev": "npm run clean",
     "start": "npm run watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "tsc --pretty --watch"

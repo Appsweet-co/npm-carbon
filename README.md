@@ -1,8 +1,7 @@
 <h1 align="center">@appsweet-co/npm-carbon</h1>
 
 <p align="center">
-  <b>Copy npm packages and all their versions from one registry to another</b></br>
-  <sub><sub>
+  <b>Copy npm packages and all their versions from one registry to another</b>
 </p>
 
 <br />
@@ -17,7 +16,12 @@ _Based on [goodeggs/npm-copy](https://github.com/goodeggs/npm-copy) and [dperuo/
 
 Use this command line tool to make a "carbon copy" of any npm package and all its published versions.
 
+## ESM vs CJS
+
+We migrated to [ESM](https://nodejs.org/api/esm.html) starting in v2.0.0. Please use v1 if you need CommonJS modules.
+
 ## Install
+
 No installation needed. Use `@appsweet-co/npm-carbon` directly from the command line.
 
 ### Node
