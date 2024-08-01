@@ -1,11 +1,10 @@
 import RegClient from 'npm-registry-client';
 import { info } from '@dperuo/logger';
-import { Props } from "./const";
-import type { SemVer } from '../types/primitives';
 
 const npm = new RegClient();
 
-export const getAuthOpts = (argv: Props) => ({
+/** @param {Props} argv */
+export const getAuthOpts = (argv) => ({
   src: {
     alwaysAuth: true,
     email: argv.srcEmail,
@@ -23,7 +22,8 @@ export const getAuthOpts = (argv: Props) => ({
   },
 });
 
-export async function getSrc(srcUrl, srcConfig): Promise<Record<SemVer, any>> {
+/** @returns {Promise<Record<SemVer, any>>} */
+export async function getSrc(srcUrl, srcConfig) {
   return new Promise((resolve, reject) => {
     info("Getting versions from source...");
 
@@ -34,7 +34,8 @@ export async function getSrc(srcUrl, srcConfig): Promise<Record<SemVer, any>> {
   });
 }
 
-export async function getDest(destUrl, destConfig): Promise<Record<SemVer, any>> {
+/** @returns {Promise<Record<SemVer, any>>} */
+export async function getDest(destUrl, destConfig) {
   return new Promise((resolve, reject) => {
     info("Getting versions from destination...");
 
@@ -45,7 +46,11 @@ export async function getDest(destUrl, destConfig): Promise<Record<SemVer, any>>
   });
 }
 
-export async function fetchTarball(url: string, params: Record<string, any>) {
+/**
+ * @param {string} url
+ * @param {Record<string, any>} params 
+ */
+export async function fetchTarball(url, params) {
   return new Promise((resolve, reject) => {
     npm.fetch(url, params, (err, data) => {
       if (err) reject(err);
@@ -54,7 +59,11 @@ export async function fetchTarball(url: string, params: Record<string, any>) {
   });
 }
 
-export async function publish(url: string, params: Record<string, any>) {
+/**
+ * @param {string} url
+ * @param {Record<string, any>} params 
+ */
+export async function publish(url, params) {
   return new Promise((resolve, reject) => {
     npm.publish(url, params, (err, data) => {
       if (err) reject(err);

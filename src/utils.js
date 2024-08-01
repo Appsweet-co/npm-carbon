@@ -1,6 +1,11 @@
 import { dev, error } from "@dperuo/logger";
 
-export function tag(id: string | number, prefix?: string): string {
+/**
+ * @param {string|number} id
+ * @param {string} [prefix]
+ * @returns {string}
+ */
+export function tag(id, prefix) {
   return prefix ? `${prefix}/${id.toString()}` : id.toString();
 };
 

@@ -1,10 +1,27 @@
 import { done, error, info, ok } from '@dperuo/logger';
 import { satisfies, validRange } from 'semver';
-import { SemVer } from '../types/primitives';
-import { Props } from "./const";
 import { fetchTarball, getAuthOpts, getDest, getSrc, publish } from "./service";
 
-export const cli = (argv: Props) => {
+/**
+ * type Props = Arguments<{
+ *   dest: string;
+ *   destEmail?: string;
+ *   destPassword?: string;
+ *   destPrefix?: string;
+ *   destToken?: string;
+ *   destUser?: string;
+ *   range: string;
+ *   src: string;
+ *   srcEmail?: string;
+ *   srcPassword?: string;
+ *   srcPrefix?: string;
+ *   srcToken?: string;
+ *   srcUser?: string;
+ * }>;
+ */
+
+/** @param {Props} argv */
+export const cli = (argv) => {
   const bundles = argv._;
   const { src, srcPrefix, dest, destPrefix, range } = argv;
   const auth = getAuthOpts(argv);
@@ -44,7 +61,7 @@ export const cli = (argv: Props) => {
 
     info(diff.length === 1 ? "1 item differs" : `${diff.length} items differ.`);
 
-    diff.forEach(async (key: SemVer) => {
+    diff.forEach(async (key) => {
       const srcMetadata = srcVersions[key];
       const { dist } = srcMetadata;
 
