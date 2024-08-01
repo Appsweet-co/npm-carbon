@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
 import yargs from "yargs";
-import { cli } from './cli';
-import { Props } from "./const";
-import { usage } from "./usage.const";
+import { cli } from '../src/cli';
+import { usage } from "../src/usage";
 
 const props = yargs
   .usage(usage)
@@ -37,4 +36,4 @@ const props = yargs
 
   .argv;
 
-cli(props as Props);
+cli(props);
